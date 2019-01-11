@@ -1,14 +1,14 @@
 Vagrant.configure("2") do |config|
-   config.vm.provision "chef_solo" do |chef|
-    chef.cookbooks_path = "chef-repo/cookbooks"
-    chef.roles_path = "chef-repo/roles"
-    chef.data_bags_path = "chef-repo/data_bags"
-    chef.add_role("rhel-base")
-  end
+  #config.vm.provision "chef_solo" do |chef|
+  #  chef.cookbooks_path = "chef-repo/cookbooks"
+  #  chef.roles_path = "chef-repo/roles"
+  #  chef.data_bags_path = "chef-repo/data_bags"
+  #  chef.add_role("base")
+  #end
   config.vm.define "alpha" do |alpha|
-    alpha.vm.box = "minimal/centos7"
+    alpha.vm.box = "ubuntu/xenial64"
     alpha.vm.hostname = 'alpha'
-    alpha.vm.box_url = "minimal/centos7"
+    alpha.vm.box_url = "ubuntu/xenial64"
 
     alpha.vm.network :private_network, ip: "192.168.56.101"
 
@@ -20,9 +20,9 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "tango" do |tango|
-    tango.vm.box = "minimal/centos7"
+    tango.vm.box = "ubuntu/xenial64"
     tango.vm.hostname = 'tango'
-    tango.vm.box_url = "minimal/centos7"
+    tango.vm.box_url = "ubuntu/xenial64"
 
     tango.vm.network :private_network, ip: "192.168.56.102"
 
@@ -33,9 +33,9 @@ Vagrant.configure("2") do |config|
     end
   end
   config.vm.define "foxtrot" do |foxtrot|
-    foxtrot.vm.box = "minimal/centos7"
+    foxtrot.vm.box = "ubuntu/xenial64"
     foxtrot.vm.hostname = 'foxtrot'
-    foxtrot.vm.box_url = "minimal/centos7"
+    foxtrot.vm.box_url = "ubuntu/xenial64"
 
     foxtrot.vm.network :private_network, ip: "192.168.56.103"
 
